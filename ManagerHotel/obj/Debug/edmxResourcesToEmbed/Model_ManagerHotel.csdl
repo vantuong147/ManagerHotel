@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="PictureOfIDCard" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PictureOfHouseholdRegistry" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RoomID" Type="Int32" />
+    <Property Name="ContractID" Type="Int32" />
+    <NavigationProperty Name="Contract" Relationship="Self.FK__Clients__Contrac__1920BF5C" FromRole="Clients" ToRole="Contracts" />
+    <NavigationProperty Name="Room" Relationship="Self.FK__Clients__RoomID__182C9B23" FromRole="Clients" ToRole="Rooms" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK__Vehicles__Person__1A14E395" FromRole="Clients" ToRole="Vehicles" />
+  </EntityType>
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="ContractID" />
+    </Key>
+    <Property Name="ContractID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="TimeStartRent" Type="DateTime" Precision="0" />
+    <Property Name="TimeEndRent" Type="DateTime" Precision="0" />
+    <Property Name="PaymentPerMonth" Type="Int32" />
+    <Property Name="PictureOfContract" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__Clients__Contrac__1920BF5C" FromRole="Contracts" ToRole="Clients" />
+  </EntityType>
+  <EntityType Name="DetailPaymentByMonth">
+    <Key>
+      <PropertyRef Name="PersonID" />
+      <PropertyRef Name="DatePay" />
+    </Key>
+    <Property Name="PersonID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DatePay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PaymentForRoom" Type="Int32" />
+    <Property Name="PaymentForOther" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ElectricityPayment">
+    <Key>
+      <PropertyRef Name="RoomID" />
+      <PropertyRef Name="DatePay" />
+    </Key>
+    <Property Name="RoomID" Type="Int32" Nullable="false" />
+    <Property Name="DatePay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Wattage" Type="Double" />
+    <Property Name="Price" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomID" />
+    </Key>
+    <Property Name="RoomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Area" Type="Double" />
+    <NavigationProperty Name="Clients" Relationship="Self.FK__Clients__RoomID__182C9B23" FromRole="Rooms" ToRole="Clients" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PersonID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK__Vehicles__Person__1A14E395" FromRole="Vehicles" ToRole="Clients" />
+  </EntityType>
+  <EntityType Name="WaterPayment">
+    <Key>
+      <PropertyRef Name="RoomID" />
+      <PropertyRef Name="DatePay" />
+    </Key>
+    <Property Name="RoomID" Type="Int32" Nullable="false" />
+    <Property Name="DatePay" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Volume" Type="Double" />
+    <Property Name="Price" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__Clients__Contrac__1920BF5C">
+    <End Role="Contracts" Type="Self.Contract" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contracts">
+        <PropertyRef Name="ContractID" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="ContractID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Clients__RoomID__182C9B23">
+    <End Role="Rooms" Type="Self.Room" Multiplicity="0..1" />
+    <End Role="Clients" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="RoomID" />
+      </Principal>
+      <Dependent Role="Clients">
+        <PropertyRef Name="RoomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicles__Person__1A14E395">
+    <End Role="Clients" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Vehicles" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Vehicles">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelManagerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="Contracts" EntityType="Self.Contract" />
+    <EntitySet Name="DetailPaymentByMonths" EntityType="Self.DetailPaymentByMonth" />
+    <EntitySet Name="ElectricityPayments" EntityType="Self.ElectricityPayment" />
+    <EntitySet Name="Rooms" EntityType="Self.Room" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+    <EntitySet Name="WaterPayments" EntityType="Self.WaterPayment" />
+    <AssociationSet Name="FK__Clients__Contrac__1920BF5C" Association="Self.FK__Clients__Contrac__1920BF5C">
+      <End Role="Contracts" EntitySet="Contracts" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Clients__RoomID__182C9B23" Association="Self.FK__Clients__RoomID__182C9B23">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="Clients" EntitySet="Clients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicles__Person__1A14E395" Association="Self.FK__Vehicles__Person__1A14E395">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Vehicles" EntitySet="Vehicles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

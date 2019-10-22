@@ -1,0 +1,17 @@
+D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\ManagerHotel.exe.config
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.Properties.Resources.resources
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.csproj.GenerateResource.Cache
+D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\ManagerHotel.exe
+D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\ManagerHotel.pdb
+D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\EntityFramework.dll
+D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\EntityFramework.SqlServer.dll
+D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\EntityFramework.xml
+D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\EntityFramework.SqlServer.xml
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.FormManageClients.resources
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.exe
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.pdb
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.Form_manageHotel.resources
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.csprojResolveAssemblyReference.cache
+D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\AeroWizard.dll
+D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\AeroWizard.xml
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.Form2.resources
