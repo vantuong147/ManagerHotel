@@ -11,7 +11,7 @@ D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.FormManageClients.resou
 D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.exe
 D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.pdb
 D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.Form_manageHotel.resources
-D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.csprojResolveAssemblyReference.cache
 D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\AeroWizard.dll
 D:\LabC\ManagerHotel\ManagerHotel\bin\Debug\AeroWizard.xml
-D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.Form2.resources
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.Form_addTenant.resources
+D:\LabC\ManagerHotel\ManagerHotel\obj\Debug\ManagerHotel.csprojResolveAssemblyReference.cache

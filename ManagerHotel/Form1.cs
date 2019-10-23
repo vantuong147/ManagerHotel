@@ -16,55 +16,44 @@ namespace ManagerHotel
         HotelManagerEntities db;
         List<Client> lstClient;
         BindingSource source;
+        DataHandle dataHandle;
         public Form_manageHotel()
         {
             InitializeComponent();
+            dataHandle = new DataHandle();
+            source = new BindingSource();
         }
         private void Form_manageHotel_Load(object sender, EventArgs e)
         {
-            db = new HotelManagerEntities();
-            lstClient = db.Clients.ToList();
-            source = new BindingSource();
-            source.DataSource = lstClient;
-            dataGridView1_showTenants.DataSource = source;
+            // TODO: This line of code loads data into the 'hotelManagerDataSet1.Clients' table. You can move, or remove it, as needed.
+            this.clientsTableAdapter.Fill(this.hotelManagerDataSet1.Clients);
         }
         private void button1_addTenantsWizard_Click(object sender, EventArgs e)
         {
-            var f2 = new Form2();
+            var f2 = new Form_addTenant();
+            f2.FormClosed += Form_addTenant_FormClosed;
             f2.Show();
-            AddTenantByDataset("000000000","t", "nguyen", "nha heo", "0121222", "", "",1);
+        }
+        private void Form_addTenant_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            RefreshDataTable1();
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
-        private bool AddTenantByObject(Client obj)
-        {
-            if (obj != null && db.Clients.AsEnumerable().Where(x => x.PersonID == obj.PersonID).Count() == 0)
-            {
-                db.Clients.Add(obj);
-                db.SaveChanges();
-                return true;
-            }
-            return false;
-        }
-        private bool AddTenantByDataset(string personId, string lastName, string firstName, string address, string phone, string pictureHouseholdReg, string pictureIDCard, int roomId)
-        {
-            Client c = new Client();
-            c.PersonID = personId;
-            c.LastName=lastName;
-            c.FirstName = firstName;
-            c.Address = address;
-            c.Phone = phone;
-            c.PictureOfHouseholdRegistry = pictureHouseholdReg;
-            c.PictureOfIDCard = pictureIDCard;
-            c.RoomID = roomId;
-            return AddTenantByObject(c);
-        }
-
         private void button4_addContracts_Click(object sender, EventArgs e)
         {
 
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        /*-------------------------------------Other function------------------------------------------------*/
+        private void RefreshDataTable1()
+        {
+            this.clientsTableAdapter.Fill(this.hotelManagerDataSet1.Clients);
         }
        
 
