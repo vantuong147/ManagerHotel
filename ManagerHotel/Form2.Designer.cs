@@ -41,8 +41,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.comboBoxW1_roomId = new System.Windows.Forms.ComboBox();
-            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelManagerDataSet = new ManagerHotel.HotelManagerDataSet();
+            this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@
             this.textBoxW1_lastName = new System.Windows.Forms.TextBox();
             this.wizardPage2 = new AeroWizard.WizardPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelW2_contractImagePath = new System.Windows.Forms.Label();
             this.pictureBoxW2_pictureContract = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -66,20 +66,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxW2_paymentOneMonth = new System.Windows.Forms.TextBox();
+            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotelManagerDataSet = new ManagerHotel.HotelManagerDataSet();
             this.roomsTableAdapter = new ManagerHotel.HotelManagerDataSetTableAdapters.RoomsTableAdapter();
-            this.labelW2_contractImagePath = new System.Windows.Forms.Label();
+            this.checkBoxW2_skipContract = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxW1_idCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxW1_houseHoldReg)).BeginInit();
             this.groupBox11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelManagerDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
             this.wizardPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxW2_pictureContract)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelManagerDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // wizardControl1
@@ -207,7 +210,7 @@
             // 
             // comboBoxW1_roomId
             // 
-            this.comboBoxW1_roomId.DataSource = this.roomsBindingSource;
+            this.comboBoxW1_roomId.DataSource = this.roomBindingSource;
             this.comboBoxW1_roomId.DisplayMember = "RoomID";
             this.comboBoxW1_roomId.FormattingEnabled = true;
             this.comboBoxW1_roomId.Location = new System.Drawing.Point(94, 204);
@@ -216,15 +219,9 @@
             this.comboBoxW1_roomId.TabIndex = 31;
             this.comboBoxW1_roomId.ValueMember = "RoomID";
             // 
-            // roomsBindingSource
+            // roomBindingSource
             // 
-            this.roomsBindingSource.DataMember = "Rooms";
-            this.roomsBindingSource.DataSource = this.hotelManagerDataSet;
-            // 
-            // hotelManagerDataSet
-            // 
-            this.hotelManagerDataSet.DataSetName = "HotelManagerDataSet";
-            this.hotelManagerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.roomBindingSource.DataSource = typeof(ManagerHotel.Room);
             // 
             // label26
             // 
@@ -336,6 +333,15 @@
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             // 
+            // labelW2_contractImagePath
+            // 
+            this.labelW2_contractImagePath.AutoSize = true;
+            this.labelW2_contractImagePath.Location = new System.Drawing.Point(258, 242);
+            this.labelW2_contractImagePath.Name = "labelW2_contractImagePath";
+            this.labelW2_contractImagePath.Size = new System.Drawing.Size(20, 15);
+            this.labelW2_contractImagePath.TabIndex = 25;
+            this.labelW2_contractImagePath.Text = "na";
+            // 
             // pictureBoxW2_pictureContract
             // 
             this.pictureBoxW2_pictureContract.BackColor = System.Drawing.Color.Silver;
@@ -366,6 +372,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxW2_skipContract);
             this.groupBox1.Controls.Add(this.dateTimePickerW2_timeEnd);
             this.groupBox1.Controls.Add(this.dateTimePickerW2_timeStart);
             this.groupBox1.Controls.Add(this.label2);
@@ -380,14 +387,14 @@
             // 
             // dateTimePickerW2_timeEnd
             // 
-            this.dateTimePickerW2_timeEnd.Location = new System.Drawing.Point(107, 68);
+            this.dateTimePickerW2_timeEnd.Location = new System.Drawing.Point(107, 109);
             this.dateTimePickerW2_timeEnd.Name = "dateTimePickerW2_timeEnd";
             this.dateTimePickerW2_timeEnd.Size = new System.Drawing.Size(200, 23);
             this.dateTimePickerW2_timeEnd.TabIndex = 12;
             // 
             // dateTimePickerW2_timeStart
             // 
-            this.dateTimePickerW2_timeStart.Location = new System.Drawing.Point(107, 19);
+            this.dateTimePickerW2_timeStart.Location = new System.Drawing.Point(107, 60);
             this.dateTimePickerW2_timeStart.Name = "dateTimePickerW2_timeStart";
             this.dateTimePickerW2_timeStart.Size = new System.Drawing.Size(200, 23);
             this.dateTimePickerW2_timeStart.TabIndex = 11;
@@ -395,7 +402,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 19);
+            this.label2.Location = new System.Drawing.Point(6, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 15);
             this.label2.TabIndex = 1;
@@ -404,7 +411,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 74);
+            this.label3.Location = new System.Drawing.Point(6, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 15);
             this.label3.TabIndex = 2;
@@ -413,7 +420,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 121);
+            this.label4.Location = new System.Drawing.Point(6, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 15);
             this.label4.TabIndex = 3;
@@ -421,23 +428,35 @@
             // 
             // textBoxW2_paymentOneMonth
             // 
-            this.textBoxW2_paymentOneMonth.Location = new System.Drawing.Point(107, 118);
+            this.textBoxW2_paymentOneMonth.Location = new System.Drawing.Point(107, 159);
             this.textBoxW2_paymentOneMonth.Name = "textBoxW2_paymentOneMonth";
             this.textBoxW2_paymentOneMonth.Size = new System.Drawing.Size(200, 23);
             this.textBoxW2_paymentOneMonth.TabIndex = 10;
+            // 
+            // roomsBindingSource
+            // 
+            this.roomsBindingSource.DataMember = "Rooms";
+            this.roomsBindingSource.DataSource = this.hotelManagerDataSet;
+            // 
+            // hotelManagerDataSet
+            // 
+            this.hotelManagerDataSet.DataSetName = "HotelManagerDataSet";
+            this.hotelManagerDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // roomsTableAdapter
             // 
             this.roomsTableAdapter.ClearBeforeFill = true;
             // 
-            // labelW2_contractImagePath
+            // checkBoxW2_skipContract
             // 
-            this.labelW2_contractImagePath.AutoSize = true;
-            this.labelW2_contractImagePath.Location = new System.Drawing.Point(258, 242);
-            this.labelW2_contractImagePath.Name = "labelW2_contractImagePath";
-            this.labelW2_contractImagePath.Size = new System.Drawing.Size(20, 15);
-            this.labelW2_contractImagePath.TabIndex = 25;
-            this.labelW2_contractImagePath.Text = "na";
+            this.checkBoxW2_skipContract.AutoSize = true;
+            this.checkBoxW2_skipContract.Location = new System.Drawing.Point(9, 22);
+            this.checkBoxW2_skipContract.Name = "checkBoxW2_skipContract";
+            this.checkBoxW2_skipContract.Size = new System.Drawing.Size(238, 19);
+            this.checkBoxW2_skipContract.TabIndex = 13;
+            this.checkBoxW2_skipContract.Text = "Skip(This person doesn \'t need contract)";
+            this.checkBoxW2_skipContract.UseVisualStyleBackColor = true;
+            this.checkBoxW2_skipContract.CheckedChanged += new System.EventHandler(this.checkBoxW2_skipContract_CheckedChanged);
             // 
             // Form_addTenant
             // 
@@ -457,14 +476,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxW1_houseHoldReg)).EndInit();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelManagerDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
             this.wizardPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxW2_pictureContract)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelManagerDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -510,5 +530,7 @@
         private System.Windows.Forms.BindingSource roomsBindingSource;
         private HotelManagerDataSetTableAdapters.RoomsTableAdapter roomsTableAdapter;
         private System.Windows.Forms.Label labelW2_contractImagePath;
+        private System.Windows.Forms.BindingSource roomBindingSource;
+        private System.Windows.Forms.CheckBox checkBoxW2_skipContract;
     }
 }
