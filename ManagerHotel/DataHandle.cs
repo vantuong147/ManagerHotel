@@ -125,14 +125,14 @@ namespace ManagerHotel
             }
             return lstRoom;
         }
-        public Room getRoom(int id)
+        public Room GetRoom(int id)
         {
             Room r = db.Rooms.AsEnumerable().Where(x => x.RoomID == id).FirstOrDefault();
             return r;
         }
         public bool IsRoomExist(int id)
         {
-            if (getRoom(id)==null)
+            if (GetRoom(id)==null)
             {
                 return false;
             }
@@ -150,6 +150,67 @@ namespace ManagerHotel
                 return false;
             }
             db.Contracts.Add(obj);
+            db.SaveChanges();
+            return true;
+        }
+        /*----------------------------------------------Vehicle function----------------------------------------*/
+        
+        public List<Vehicle> GetAllVehicles()
+        {
+            List<Vehicle> lst = db.Vehicles.ToList<Vehicle>();
+            if (lst != null)
+            {
+                return lst;
+            }
+            return new List<Vehicle>();
+        }
+
+        public Vehicle GetVehicle(string id)
+        {
+            Vehicle r = db.Vehicles.AsEnumerable().Where(x => x.VehicleID == id).FirstOrDefault();
+            return r;
+        }
+
+        public bool RemoveVehicleById(string id)
+        {
+            Vehicle v = GetVehicle(id);
+            if (v != null)
+            {
+                db.Vehicles.Remove(v);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public string AddVehicleByObject(Vehicle v)
+        {
+            if (v == null || v.VehicleID == null || v.VehicleID == "" || v.PersonID == null)
+            {
+                return ERR_DATA_MISSED;
+            }
+            Vehicle ve = GetVehicle(v.VehicleID);
+            if (ve != null)
+            {
+                return ERR_DATA_EXISTED;
+            }
+            else
+            {
+                db.Vehicles.Add(v);
+                db.SaveChanges();
+                return SUCESS;
+            }
+        }
+        public bool EditVehicleById(string id, Vehicle newData)
+        {
+            Vehicle v = db.Vehicles.AsEnumerable().Where(x => x.VehicleID == id).FirstOrDefault();
+            if (v == null)
+            {
+                return false;
+            }
+            v.Model = newData.Model;
+            v.Color = newData.Color;
+            v.PersonID = newData.PersonID;
             db.SaveChanges();
             return true;
         }

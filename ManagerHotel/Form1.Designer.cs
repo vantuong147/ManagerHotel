@@ -44,6 +44,14 @@
             this.button1_removeTenants = new System.Windows.Forms.Button();
             this.button1_addTenantsWizard = new System.Windows.Forms.Button();
             this.dataGridView1_showTenants = new System.Windows.Forms.DataGridView();
+            this.personIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_manageRooms = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button2_updateInfoRoom = new System.Windows.Forms.Button();
@@ -61,6 +69,12 @@
             this.dataGridView2_showTenantsByRoom = new System.Windows.Forms.DataGridView();
             this.Check_roomTab = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.RoomID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.personIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button2_removeTenants = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -89,6 +103,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView4_showContracts = new System.Windows.Forms.DataGridView();
             this.Check_tableContract = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeStartRentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeEndRentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paymentPerMonthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contractBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.textBox4_searchContracts = new System.Windows.Forms.TextBox();
             this.button4_searchContracts = new System.Windows.Forms.Button();
@@ -101,29 +121,35 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabPage_manageVehicle = new System.Windows.Forms.TabPage();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.button5_removeVehicles = new System.Windows.Forms.Button();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.button5_clear = new System.Windows.Forms.Button();
+            this.comboBox5_vehicleColor = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.comboBox5_personId = new System.Windows.Forms.ComboBox();
+            this.clientBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox5_vehicleId = new System.Windows.Forms.TextBox();
+            this.button5_addVehicle = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox5_vehicleModel = new System.Windows.Forms.TextBox();
+            this.dataGridView5_showVehicles = new System.Windows.Forms.DataGridView();
+            this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelManagerDataSet1 = new ManagerHotel.HotelManagerDataSet1();
             this.clientsTableAdapter = new ManagerHotel.HotelManagerDataSet1TableAdapters.ClientsTableAdapter();
-            this.clientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.personIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personIDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeStartRentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeEndRentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paymentPerMonthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contractBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.personIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkVehicleCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.vehicleIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colorCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personIDCol_dataGrid5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl.SuspendLayout();
             this.tabPage_manageTenants.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -131,12 +157,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1_showTenants)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource1)).BeginInit();
             this.tabPage_manageRooms.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2_showTenantsByRoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tabPage_managePayment.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -146,15 +174,21 @@
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4_showContracts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractBindingSource)).BeginInit();
             this.groupBox9.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.tabPage_manageVehicle.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5_showVehicles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).BeginInit();
+            this.groupBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelManagerDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -163,6 +197,7 @@
             this.tabControl.Controls.Add(this.tabPage_manageRooms);
             this.tabControl.Controls.Add(this.tabPage_managePayment);
             this.tabControl.Controls.Add(this.tabPage_manageContracts);
+            this.tabControl.Controls.Add(this.tabPage_manageVehicle);
             this.tabControl.Location = new System.Drawing.Point(1, 1);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -190,7 +225,7 @@
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(284, 497);
+            this.groupBox4.Size = new System.Drawing.Size(278, 497);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             // 
@@ -269,6 +304,7 @@
             this.button1_manageVehicles.TabIndex = 21;
             this.button1_manageVehicles.Text = "Manage Vehicle";
             this.button1_manageVehicles.UseVisualStyleBackColor = true;
+            this.button1_manageVehicles.Click += new System.EventHandler(this.button1_manageVehicles_Click);
             // 
             // button1_search
             // 
@@ -306,13 +342,13 @@
             this.dataGridView1_showTenants.AutoGenerateColumns = false;
             this.dataGridView1_showTenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1_showTenants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Check,
             this.personIDCol,
             this.lNameCol,
             this.fNameCol,
             this.addressCol,
             this.phoneCol,
-            this.roomIDCol});
+            this.roomIDCol,
+            this.Check});
             this.dataGridView1_showTenants.DataSource = this.clientBindingSource1;
             this.dataGridView1_showTenants.Location = new System.Drawing.Point(287, 54);
             this.dataGridView1_showTenants.Name = "dataGridView1_showTenants";
@@ -320,6 +356,58 @@
             this.dataGridView1_showTenants.TabIndex = 14;
             this.dataGridView1_showTenants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_showTenants_CellClick);
             this.dataGridView1_showTenants.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_showTenants_CellValueChanged_1);
+            // 
+            // personIDCol
+            // 
+            this.personIDCol.DataPropertyName = "PersonID";
+            this.personIDCol.HeaderText = "PersonID";
+            this.personIDCol.Name = "personIDCol";
+            this.personIDCol.ReadOnly = true;
+            // 
+            // lNameCol
+            // 
+            this.lNameCol.DataPropertyName = "LastName";
+            this.lNameCol.HeaderText = "LastName";
+            this.lNameCol.Name = "lNameCol";
+            this.lNameCol.Width = 150;
+            // 
+            // fNameCol
+            // 
+            this.fNameCol.DataPropertyName = "FirstName";
+            this.fNameCol.HeaderText = "FirstName";
+            this.fNameCol.Name = "fNameCol";
+            this.fNameCol.Width = 150;
+            // 
+            // addressCol
+            // 
+            this.addressCol.DataPropertyName = "Address";
+            this.addressCol.HeaderText = "Address";
+            this.addressCol.Name = "addressCol";
+            this.addressCol.Width = 225;
+            // 
+            // phoneCol
+            // 
+            this.phoneCol.DataPropertyName = "Phone";
+            this.phoneCol.HeaderText = "Phone";
+            this.phoneCol.Name = "phoneCol";
+            this.phoneCol.Width = 150;
+            // 
+            // roomIDCol
+            // 
+            this.roomIDCol.DataPropertyName = "RoomID";
+            this.roomIDCol.HeaderText = "RoomID";
+            this.roomIDCol.Name = "roomIDCol";
+            this.roomIDCol.ReadOnly = true;
+            // 
+            // Check
+            // 
+            this.Check.HeaderText = "Check";
+            this.Check.Name = "Check";
+            this.Check.Width = 50;
+            // 
+            // clientBindingSource1
+            // 
+            this.clientBindingSource1.DataSource = typeof(ManagerHotel.Client);
             // 
             // tabPage_manageRooms
             // 
@@ -487,6 +575,41 @@
             this.RoomID.DataPropertyName = "RoomID";
             this.RoomID.HeaderText = "RoomID";
             this.RoomID.Name = "RoomID";
+            // 
+            // personIDDataGridViewTextBoxColumn1
+            // 
+            this.personIDDataGridViewTextBoxColumn1.DataPropertyName = "PersonID";
+            this.personIDDataGridViewTextBoxColumn1.HeaderText = "PersonID";
+            this.personIDDataGridViewTextBoxColumn1.Name = "personIDDataGridViewTextBoxColumn1";
+            // 
+            // lastNameDataGridViewTextBoxColumn1
+            // 
+            this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn1.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
+            // 
+            // firstNameDataGridViewTextBoxColumn1
+            // 
+            this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn1.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
+            // 
+            // addressDataGridViewTextBoxColumn1
+            // 
+            this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
+            this.addressDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // phoneDataGridViewTextBoxColumn1
+            // 
+            this.phoneDataGridViewTextBoxColumn1.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn1.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
+            // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataSource = typeof(ManagerHotel.Client);
             // 
             // groupBox3
             // 
@@ -764,6 +887,40 @@
             this.Check_tableContract.Name = "Check_tableContract";
             this.Check_tableContract.Width = 50;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ContractID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ContractID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // personIDDataGridViewTextBoxColumn2
+            // 
+            this.personIDDataGridViewTextBoxColumn2.DataPropertyName = "PersonID";
+            this.personIDDataGridViewTextBoxColumn2.HeaderText = "PersonID";
+            this.personIDDataGridViewTextBoxColumn2.Name = "personIDDataGridViewTextBoxColumn2";
+            // 
+            // timeStartRentDataGridViewTextBoxColumn
+            // 
+            this.timeStartRentDataGridViewTextBoxColumn.DataPropertyName = "TimeStartRent";
+            this.timeStartRentDataGridViewTextBoxColumn.HeaderText = "TimeStartRent";
+            this.timeStartRentDataGridViewTextBoxColumn.Name = "timeStartRentDataGridViewTextBoxColumn";
+            // 
+            // timeEndRentDataGridViewTextBoxColumn
+            // 
+            this.timeEndRentDataGridViewTextBoxColumn.DataPropertyName = "TimeEndRent";
+            this.timeEndRentDataGridViewTextBoxColumn.HeaderText = "TimeEndRent";
+            this.timeEndRentDataGridViewTextBoxColumn.Name = "timeEndRentDataGridViewTextBoxColumn";
+            // 
+            // paymentPerMonthDataGridViewTextBoxColumn
+            // 
+            this.paymentPerMonthDataGridViewTextBoxColumn.DataPropertyName = "PaymentPerMonth";
+            this.paymentPerMonthDataGridViewTextBoxColumn.HeaderText = "PaymentPerMonth";
+            this.paymentPerMonthDataGridViewTextBoxColumn.Name = "paymentPerMonthDataGridViewTextBoxColumn";
+            // 
+            // contractBindingSource
+            // 
+            this.contractBindingSource.DataSource = typeof(ManagerHotel.Contract);
+            // 
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.textBox4_searchContracts);
@@ -876,6 +1033,210 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "ID Card";
             // 
+            // tabPage_manageVehicle
+            // 
+            this.tabPage_manageVehicle.Controls.Add(this.groupBox13);
+            this.tabPage_manageVehicle.Controls.Add(this.groupBox11);
+            this.tabPage_manageVehicle.Controls.Add(this.dataGridView5_showVehicles);
+            this.tabPage_manageVehicle.Controls.Add(this.groupBox12);
+            this.tabPage_manageVehicle.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_manageVehicle.Name = "tabPage_manageVehicle";
+            this.tabPage_manageVehicle.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_manageVehicle.Size = new System.Drawing.Size(1253, 503);
+            this.tabPage_manageVehicle.TabIndex = 4;
+            this.tabPage_manageVehicle.Text = "Manage Vehicle";
+            this.tabPage_manageVehicle.UseVisualStyleBackColor = true;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.button5_removeVehicles);
+            this.groupBox13.Location = new System.Drawing.Point(716, 6);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(537, 47);
+            this.groupBox13.TabIndex = 34;
+            this.groupBox13.TabStop = false;
+            // 
+            // button5_removeVehicles
+            // 
+            this.button5_removeVehicles.Location = new System.Drawing.Point(19, 18);
+            this.button5_removeVehicles.Name = "button5_removeVehicles";
+            this.button5_removeVehicles.Size = new System.Drawing.Size(111, 23);
+            this.button5_removeVehicles.TabIndex = 29;
+            this.button5_removeVehicles.Text = "Remove Vehicle(s)";
+            this.button5_removeVehicles.UseVisualStyleBackColor = true;
+            this.button5_removeVehicles.Click += new System.EventHandler(this.button5_removeVehicles_Click);
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.button5_clear);
+            this.groupBox11.Controls.Add(this.comboBox5_vehicleColor);
+            this.groupBox11.Controls.Add(this.label18);
+            this.groupBox11.Controls.Add(this.comboBox5_personId);
+            this.groupBox11.Controls.Add(this.label3);
+            this.groupBox11.Controls.Add(this.textBox5_vehicleId);
+            this.groupBox11.Controls.Add(this.button5_addVehicle);
+            this.groupBox11.Controls.Add(this.label5);
+            this.groupBox11.Controls.Add(this.label6);
+            this.groupBox11.Controls.Add(this.textBox5_vehicleModel);
+            this.groupBox11.Location = new System.Drawing.Point(7, 6);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(225, 324);
+            this.groupBox11.TabIndex = 31;
+            this.groupBox11.TabStop = false;
+            // 
+            // button5_clear
+            // 
+            this.button5_clear.Location = new System.Drawing.Point(9, 242);
+            this.button5_clear.Name = "button5_clear";
+            this.button5_clear.Size = new System.Drawing.Size(115, 23);
+            this.button5_clear.TabIndex = 33;
+            this.button5_clear.Text = "Clear";
+            this.button5_clear.UseVisualStyleBackColor = true;
+            this.button5_clear.Click += new System.EventHandler(this.button5_clear_Click);
+            // 
+            // comboBox5_vehicleColor
+            // 
+            this.comboBox5_vehicleColor.FormattingEnabled = true;
+            this.comboBox5_vehicleColor.Location = new System.Drawing.Point(78, 138);
+            this.comboBox5_vehicleColor.Name = "comboBox5_vehicleColor";
+            this.comboBox5_vehicleColor.Size = new System.Drawing.Size(141, 21);
+            this.comboBox5_vehicleColor.TabIndex = 32;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 141);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 13);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "Color";
+            // 
+            // comboBox5_personId
+            // 
+            this.comboBox5_personId.DataSource = this.clientBindingSource2;
+            this.comboBox5_personId.DisplayMember = "PersonID";
+            this.comboBox5_personId.FormattingEnabled = true;
+            this.comboBox5_personId.Location = new System.Drawing.Point(78, 31);
+            this.comboBox5_personId.Name = "comboBox5_personId";
+            this.comboBox5_personId.Size = new System.Drawing.Size(141, 21);
+            this.comboBox5_personId.TabIndex = 13;
+            this.comboBox5_personId.ValueMember = "PersonID";
+            // 
+            // clientBindingSource2
+            // 
+            this.clientBindingSource2.DataSource = typeof(ManagerHotel.Client);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Person ID";
+            // 
+            // textBox5_vehicleId
+            // 
+            this.textBox5_vehicleId.Location = new System.Drawing.Point(78, 68);
+            this.textBox5_vehicleId.Name = "textBox5_vehicleId";
+            this.textBox5_vehicleId.Size = new System.Drawing.Size(141, 20);
+            this.textBox5_vehicleId.TabIndex = 10;
+            // 
+            // button5_addVehicle
+            // 
+            this.button5_addVehicle.Location = new System.Drawing.Point(9, 200);
+            this.button5_addVehicle.Name = "button5_addVehicle";
+            this.button5_addVehicle.Size = new System.Drawing.Size(115, 23);
+            this.button5_addVehicle.TabIndex = 30;
+            this.button5_addVehicle.Text = "Add New Vehicle";
+            this.button5_addVehicle.UseVisualStyleBackColor = true;
+            this.button5_addVehicle.Click += new System.EventHandler(this.button5_addVehicle_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Vehicle ID";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Model";
+            // 
+            // textBox5_vehicleModel
+            // 
+            this.textBox5_vehicleModel.Location = new System.Drawing.Point(78, 102);
+            this.textBox5_vehicleModel.Name = "textBox5_vehicleModel";
+            this.textBox5_vehicleModel.Size = new System.Drawing.Size(141, 20);
+            this.textBox5_vehicleModel.TabIndex = 8;
+            // 
+            // dataGridView5_showVehicles
+            // 
+            this.dataGridView5_showVehicles.AllowUserToAddRows = false;
+            this.dataGridView5_showVehicles.AllowUserToDeleteRows = false;
+            this.dataGridView5_showVehicles.AutoGenerateColumns = false;
+            this.dataGridView5_showVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5_showVehicles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.checkVehicleCol,
+            this.vehicleIDCol,
+            this.modelCol,
+            this.colorCol,
+            this.personIDCol_dataGrid5});
+            this.dataGridView5_showVehicles.DataSource = this.vehicleBindingSource;
+            this.dataGridView5_showVehicles.Location = new System.Drawing.Point(716, 65);
+            this.dataGridView5_showVehicles.Name = "dataGridView5_showVehicles";
+            this.dataGridView5_showVehicles.Size = new System.Drawing.Size(541, 435);
+            this.dataGridView5_showVehicles.TabIndex = 33;
+            this.dataGridView5_showVehicles.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_showVehicles_CellValueChanged);
+            // 
+            // vehicleBindingSource
+            // 
+            this.vehicleBindingSource.DataSource = typeof(ManagerHotel.Vehicle);
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.pictureBox8);
+            this.groupBox12.Controls.Add(this.label15);
+            this.groupBox12.Controls.Add(this.label16);
+            this.groupBox12.Location = new System.Drawing.Point(265, 6);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(242, 411);
+            this.groupBox12.TabIndex = 32;
+            this.groupBox12.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(228, 186);
+            this.pictureBox8.TabIndex = 15;
+            this.pictureBox8.TabStop = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(97, 452);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(100, 13);
+            this.label15.TabIndex = 24;
+            this.label15.Text = "Household Register";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(83, 219);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(78, 13);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Vehicle Picture";
+            // 
             // clientsBindingSource
             // 
             this.clientsBindingSource.DataMember = "Clients";
@@ -890,126 +1251,35 @@
             // 
             this.clientsTableAdapter.ClearBeforeFill = true;
             // 
-            // clientBindingSource1
+            // checkVehicleCol
             // 
-            this.clientBindingSource1.DataSource = typeof(ManagerHotel.Client);
+            this.checkVehicleCol.HeaderText = "Check";
+            this.checkVehicleCol.Name = "checkVehicleCol";
             // 
-            // personIDDataGridViewTextBoxColumn1
+            // vehicleIDCol
             // 
-            this.personIDDataGridViewTextBoxColumn1.DataPropertyName = "PersonID";
-            this.personIDDataGridViewTextBoxColumn1.HeaderText = "PersonID";
-            this.personIDDataGridViewTextBoxColumn1.Name = "personIDDataGridViewTextBoxColumn1";
+            this.vehicleIDCol.DataPropertyName = "VehicleID";
+            this.vehicleIDCol.HeaderText = "VehicleID";
+            this.vehicleIDCol.Name = "vehicleIDCol";
+            this.vehicleIDCol.ReadOnly = true;
             // 
-            // lastNameDataGridViewTextBoxColumn1
+            // modelCol
             // 
-            this.lastNameDataGridViewTextBoxColumn1.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn1.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn1.Name = "lastNameDataGridViewTextBoxColumn1";
+            this.modelCol.DataPropertyName = "Model";
+            this.modelCol.HeaderText = "Model";
+            this.modelCol.Name = "modelCol";
             // 
-            // firstNameDataGridViewTextBoxColumn1
+            // colorCol
             // 
-            this.firstNameDataGridViewTextBoxColumn1.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn1.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn1.Name = "firstNameDataGridViewTextBoxColumn1";
+            this.colorCol.DataPropertyName = "Color";
+            this.colorCol.HeaderText = "Color";
+            this.colorCol.Name = "colorCol";
             // 
-            // addressDataGridViewTextBoxColumn1
+            // personIDCol_dataGrid5
             // 
-            this.addressDataGridViewTextBoxColumn1.DataPropertyName = "Address";
-            this.addressDataGridViewTextBoxColumn1.HeaderText = "Address";
-            this.addressDataGridViewTextBoxColumn1.Name = "addressDataGridViewTextBoxColumn1";
-            this.addressDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // phoneDataGridViewTextBoxColumn1
-            // 
-            this.phoneDataGridViewTextBoxColumn1.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn1.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn1.Name = "phoneDataGridViewTextBoxColumn1";
-            // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataSource = typeof(ManagerHotel.Client);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ContractID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ContractID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // personIDDataGridViewTextBoxColumn2
-            // 
-            this.personIDDataGridViewTextBoxColumn2.DataPropertyName = "PersonID";
-            this.personIDDataGridViewTextBoxColumn2.HeaderText = "PersonID";
-            this.personIDDataGridViewTextBoxColumn2.Name = "personIDDataGridViewTextBoxColumn2";
-            // 
-            // timeStartRentDataGridViewTextBoxColumn
-            // 
-            this.timeStartRentDataGridViewTextBoxColumn.DataPropertyName = "TimeStartRent";
-            this.timeStartRentDataGridViewTextBoxColumn.HeaderText = "TimeStartRent";
-            this.timeStartRentDataGridViewTextBoxColumn.Name = "timeStartRentDataGridViewTextBoxColumn";
-            // 
-            // timeEndRentDataGridViewTextBoxColumn
-            // 
-            this.timeEndRentDataGridViewTextBoxColumn.DataPropertyName = "TimeEndRent";
-            this.timeEndRentDataGridViewTextBoxColumn.HeaderText = "TimeEndRent";
-            this.timeEndRentDataGridViewTextBoxColumn.Name = "timeEndRentDataGridViewTextBoxColumn";
-            // 
-            // paymentPerMonthDataGridViewTextBoxColumn
-            // 
-            this.paymentPerMonthDataGridViewTextBoxColumn.DataPropertyName = "PaymentPerMonth";
-            this.paymentPerMonthDataGridViewTextBoxColumn.HeaderText = "PaymentPerMonth";
-            this.paymentPerMonthDataGridViewTextBoxColumn.Name = "paymentPerMonthDataGridViewTextBoxColumn";
-            // 
-            // contractBindingSource
-            // 
-            this.contractBindingSource.DataSource = typeof(ManagerHotel.Contract);
-            // 
-            // Check
-            // 
-            this.Check.HeaderText = "Check";
-            this.Check.Name = "Check";
-            this.Check.Width = 50;
-            // 
-            // personIDCol
-            // 
-            this.personIDCol.DataPropertyName = "PersonID";
-            this.personIDCol.HeaderText = "PersonID";
-            this.personIDCol.Name = "personIDCol";
-            this.personIDCol.ReadOnly = true;
-            // 
-            // lNameCol
-            // 
-            this.lNameCol.DataPropertyName = "LastName";
-            this.lNameCol.HeaderText = "LastName";
-            this.lNameCol.Name = "lNameCol";
-            this.lNameCol.Width = 150;
-            // 
-            // fNameCol
-            // 
-            this.fNameCol.DataPropertyName = "FirstName";
-            this.fNameCol.HeaderText = "FirstName";
-            this.fNameCol.Name = "fNameCol";
-            this.fNameCol.Width = 150;
-            // 
-            // addressCol
-            // 
-            this.addressCol.DataPropertyName = "Address";
-            this.addressCol.HeaderText = "Address";
-            this.addressCol.Name = "addressCol";
-            this.addressCol.Width = 225;
-            // 
-            // phoneCol
-            // 
-            this.phoneCol.DataPropertyName = "Phone";
-            this.phoneCol.HeaderText = "Phone";
-            this.phoneCol.Name = "phoneCol";
-            this.phoneCol.Width = 150;
-            // 
-            // roomIDCol
-            // 
-            this.roomIDCol.DataPropertyName = "RoomID";
-            this.roomIDCol.HeaderText = "RoomID";
-            this.roomIDCol.Name = "roomIDCol";
-            this.roomIDCol.ReadOnly = true;
+            this.personIDCol_dataGrid5.DataPropertyName = "PersonID";
+            this.personIDCol_dataGrid5.HeaderText = "PersonID";
+            this.personIDCol_dataGrid5.Name = "personIDCol_dataGrid5";
             // 
             // Form_manageHotel
             // 
@@ -1029,6 +1299,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1_showTenants)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource1)).EndInit();
             this.tabPage_manageRooms.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -1037,6 +1308,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2_showTenantsByRoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPage_managePayment.ResumeLayout(false);
@@ -1050,17 +1322,25 @@
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4_showContracts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contractBindingSource)).EndInit();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.tabPage_manageVehicle.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5_showVehicles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehicleBindingSource)).EndInit();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelManagerDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contractBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1167,6 +1447,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn addressCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomIDCol;
+        private System.Windows.Forms.TabPage tabPage_manageVehicle;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox5_vehicleId;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox5_vehicleModel;
+        private System.Windows.Forms.DataGridView dataGridView5_showVehicles;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button5_addVehicle;
+        private System.Windows.Forms.Button button5_removeVehicles;
+        private System.Windows.Forms.BindingSource vehicleBindingSource;
+        private System.Windows.Forms.ComboBox comboBox5_personId;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.ComboBox comboBox5_vehicleColor;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.BindingSource clientBindingSource2;
+        private System.Windows.Forms.Button button5_clear;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn checkVehicleCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vehicleIDCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn modelCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colorCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn personIDCol_dataGrid5;
 
     }
 }
