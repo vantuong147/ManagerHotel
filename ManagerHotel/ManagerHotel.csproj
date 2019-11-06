@@ -149,6 +149,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model_HotelManager.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="HotelManagerDataSet.xsc">
       <DependentUpon>HotelManagerDataSet.xsd</DependentUpon>
     </None>

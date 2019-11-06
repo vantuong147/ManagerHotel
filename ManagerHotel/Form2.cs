@@ -26,7 +26,19 @@ namespace ManagerHotel
 
         private void pictureBoxW2_pictureContract_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog fd = new OpenFileDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    labelW2_contractImagePath.Text = fd.FileName;
+                    pictureBoxW2_pictureContract.Image = Image.FromFile(fd.FileName);
+                }
+                catch (SecurityException ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }
         }
         /*---------------------------------------Get input functions---------------------------------*/
         private Client getInput2Client()
@@ -62,6 +74,7 @@ namespace ManagerHotel
                 try
                 {
                     labelW1_ImgIdCardPath.Text = fd.FileName;
+                    pictureBoxW1_idCard.Image = Image.FromFile(fd.FileName);
                 }
                 catch (SecurityException ex)
                 {
@@ -173,6 +186,23 @@ namespace ManagerHotel
                 return 0;
             }
             return Int32.Parse(s);
+        }
+
+        private void pictureBoxW1_houseHoldReg_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fd = new OpenFileDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    labelW1_imgHouseholdRegPath.Text = fd.FileName;
+                    pictureBoxW1_houseHoldReg.Image = Image.FromFile(fd.FileName);
+                }
+                catch (SecurityException ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }
         }
     }
 }

@@ -44,13 +44,15 @@
             this.button1_removeTenants = new System.Windows.Forms.Button();
             this.button1_addTenantsWizard = new System.Windows.Forms.Button();
             this.dataGridView1_showTenants = new System.Windows.Forms.DataGridView();
+            this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.personIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PictureOfIDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PictureOfHouseholdRegistry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage_manageRooms = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -137,19 +139,24 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5_vehicleModel = new System.Windows.Forms.TextBox();
             this.dataGridView5_showVehicles = new System.Windows.Forms.DataGridView();
+            this.checkVehicleCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.vehicleIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colorCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personIDCol_dataGrid5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Picture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.label5_vehicleAddPath = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelManagerDataSet1 = new ManagerHotel.HotelManagerDataSet1();
             this.clientsTableAdapter = new ManagerHotel.HotelManagerDataSet1TableAdapters.ClientsTableAdapter();
-            this.checkVehicleCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.vehicleIDCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colorCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personIDCol_dataGrid5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button5_search = new System.Windows.Forms.Button();
+            this.textBox5_sarch = new System.Windows.Forms.TextBox();
+            this.button5_showVehicle = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage_manageTenants.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -231,9 +238,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Location = new System.Drawing.Point(0, 18);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(270, 186);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -249,9 +258,11 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Location = new System.Drawing.Point(0, 237);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(270, 189);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -340,15 +351,18 @@
             this.dataGridView1_showTenants.AllowUserToAddRows = false;
             this.dataGridView1_showTenants.AllowUserToDeleteRows = false;
             this.dataGridView1_showTenants.AutoGenerateColumns = false;
+            this.dataGridView1_showTenants.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dataGridView1_showTenants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1_showTenants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Check,
             this.personIDCol,
             this.lNameCol,
             this.fNameCol,
             this.addressCol,
             this.phoneCol,
             this.roomIDCol,
-            this.Check});
+            this.PictureOfIDCard,
+            this.PictureOfHouseholdRegistry});
             this.dataGridView1_showTenants.DataSource = this.clientBindingSource1;
             this.dataGridView1_showTenants.Location = new System.Drawing.Point(287, 54);
             this.dataGridView1_showTenants.Name = "dataGridView1_showTenants";
@@ -356,6 +370,12 @@
             this.dataGridView1_showTenants.TabIndex = 14;
             this.dataGridView1_showTenants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_showTenants_CellClick);
             this.dataGridView1_showTenants.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_showTenants_CellValueChanged_1);
+            // 
+            // Check
+            // 
+            this.Check.HeaderText = "Check";
+            this.Check.Name = "Check";
+            this.Check.Width = 50;
             // 
             // personIDCol
             // 
@@ -399,11 +419,19 @@
             this.roomIDCol.Name = "roomIDCol";
             this.roomIDCol.ReadOnly = true;
             // 
-            // Check
+            // PictureOfIDCard
             // 
-            this.Check.HeaderText = "Check";
-            this.Check.Name = "Check";
-            this.Check.Width = 50;
+            this.PictureOfIDCard.DataPropertyName = "PictureOfIDCard";
+            this.PictureOfIDCard.HeaderText = "PictureOfIDCard";
+            this.PictureOfIDCard.Name = "PictureOfIDCard";
+            this.PictureOfIDCard.Visible = false;
+            // 
+            // PictureOfHouseholdRegistry
+            // 
+            this.PictureOfHouseholdRegistry.DataPropertyName = "PictureOfHouseholdRegistry";
+            this.PictureOfHouseholdRegistry.HeaderText = "PictureOfHouseholdRegistry";
+            this.PictureOfHouseholdRegistry.Name = "PictureOfHouseholdRegistry";
+            this.PictureOfHouseholdRegistry.Visible = false;
             // 
             // clientBindingSource1
             // 
@@ -1049,6 +1077,8 @@
             // 
             // groupBox13
             // 
+            this.groupBox13.Controls.Add(this.textBox5_sarch);
+            this.groupBox13.Controls.Add(this.button5_search);
             this.groupBox13.Controls.Add(this.button5_removeVehicles);
             this.groupBox13.Location = new System.Drawing.Point(716, 6);
             this.groupBox13.Name = "groupBox13";
@@ -1068,6 +1098,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.button5_showVehicle);
             this.groupBox11.Controls.Add(this.button5_clear);
             this.groupBox11.Controls.Add(this.comboBox5_vehicleColor);
             this.groupBox11.Controls.Add(this.label18);
@@ -1080,7 +1111,7 @@
             this.groupBox11.Controls.Add(this.textBox5_vehicleModel);
             this.groupBox11.Location = new System.Drawing.Point(7, 6);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(225, 324);
+            this.groupBox11.Size = new System.Drawing.Size(225, 411);
             this.groupBox11.TabIndex = 31;
             this.groupBox11.TabStop = false;
             // 
@@ -1141,6 +1172,7 @@
             this.textBox5_vehicleId.Name = "textBox5_vehicleId";
             this.textBox5_vehicleId.Size = new System.Drawing.Size(141, 20);
             this.textBox5_vehicleId.TabIndex = 10;
+            this.textBox5_vehicleId.TextChanged += new System.EventHandler(this.textBox5_vehicleId_TextChanged);
             // 
             // button5_addVehicle
             // 
@@ -1188,13 +1220,52 @@
             this.vehicleIDCol,
             this.modelCol,
             this.colorCol,
-            this.personIDCol_dataGrid5});
+            this.personIDCol_dataGrid5,
+            this.Picture});
             this.dataGridView5_showVehicles.DataSource = this.vehicleBindingSource;
             this.dataGridView5_showVehicles.Location = new System.Drawing.Point(716, 65);
             this.dataGridView5_showVehicles.Name = "dataGridView5_showVehicles";
             this.dataGridView5_showVehicles.Size = new System.Drawing.Size(541, 435);
             this.dataGridView5_showVehicles.TabIndex = 33;
+            this.dataGridView5_showVehicles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_showVehicles_CellClick);
             this.dataGridView5_showVehicles.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_showVehicles_CellValueChanged);
+            // 
+            // checkVehicleCol
+            // 
+            this.checkVehicleCol.HeaderText = "Check";
+            this.checkVehicleCol.Name = "checkVehicleCol";
+            // 
+            // vehicleIDCol
+            // 
+            this.vehicleIDCol.DataPropertyName = "VehicleID";
+            this.vehicleIDCol.HeaderText = "VehicleID";
+            this.vehicleIDCol.Name = "vehicleIDCol";
+            this.vehicleIDCol.ReadOnly = true;
+            // 
+            // modelCol
+            // 
+            this.modelCol.DataPropertyName = "Model";
+            this.modelCol.HeaderText = "Model";
+            this.modelCol.Name = "modelCol";
+            // 
+            // colorCol
+            // 
+            this.colorCol.DataPropertyName = "Color";
+            this.colorCol.HeaderText = "Color";
+            this.colorCol.Name = "colorCol";
+            // 
+            // personIDCol_dataGrid5
+            // 
+            this.personIDCol_dataGrid5.DataPropertyName = "PersonID";
+            this.personIDCol_dataGrid5.HeaderText = "PersonID";
+            this.personIDCol_dataGrid5.Name = "personIDCol_dataGrid5";
+            // 
+            // Picture
+            // 
+            this.Picture.DataPropertyName = "Picture";
+            this.Picture.HeaderText = "Picture";
+            this.Picture.Name = "Picture";
+            this.Picture.Visible = false;
             // 
             // vehicleBindingSource
             // 
@@ -1202,6 +1273,7 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.label5_vehicleAddPath);
             this.groupBox12.Controls.Add(this.pictureBox8);
             this.groupBox12.Controls.Add(this.label15);
             this.groupBox12.Controls.Add(this.label16);
@@ -1211,13 +1283,24 @@
             this.groupBox12.TabIndex = 32;
             this.groupBox12.TabStop = false;
             // 
+            // label5_vehicleAddPath
+            // 
+            this.label5_vehicleAddPath.AutoSize = true;
+            this.label5_vehicleAddPath.Location = new System.Drawing.Point(6, 219);
+            this.label5_vehicleAddPath.Name = "label5_vehicleAddPath";
+            this.label5_vehicleAddPath.Size = new System.Drawing.Size(19, 13);
+            this.label5_vehicleAddPath.TabIndex = 25;
+            this.label5_vehicleAddPath.Text = "na";
+            // 
             // pictureBox8
             // 
             this.pictureBox8.Location = new System.Drawing.Point(6, 19);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(228, 186);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 15;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // label15
             // 
@@ -1251,35 +1334,30 @@
             // 
             this.clientsTableAdapter.ClearBeforeFill = true;
             // 
-            // checkVehicleCol
+            // button5_search
             // 
-            this.checkVehicleCol.HeaderText = "Check";
-            this.checkVehicleCol.Name = "checkVehicleCol";
+            this.button5_search.Location = new System.Drawing.Point(456, 19);
+            this.button5_search.Name = "button5_search";
+            this.button5_search.Size = new System.Drawing.Size(75, 22);
+            this.button5_search.TabIndex = 30;
+            this.button5_search.Text = "Search";
+            this.button5_search.UseVisualStyleBackColor = true;
             // 
-            // vehicleIDCol
+            // textBox5_sarch
             // 
-            this.vehicleIDCol.DataPropertyName = "VehicleID";
-            this.vehicleIDCol.HeaderText = "VehicleID";
-            this.vehicleIDCol.Name = "vehicleIDCol";
-            this.vehicleIDCol.ReadOnly = true;
+            this.textBox5_sarch.Location = new System.Drawing.Point(334, 18);
+            this.textBox5_sarch.Name = "textBox5_sarch";
+            this.textBox5_sarch.Size = new System.Drawing.Size(116, 20);
+            this.textBox5_sarch.TabIndex = 31;
             // 
-            // modelCol
+            // button5_showVehicle
             // 
-            this.modelCol.DataPropertyName = "Model";
-            this.modelCol.HeaderText = "Model";
-            this.modelCol.Name = "modelCol";
-            // 
-            // colorCol
-            // 
-            this.colorCol.DataPropertyName = "Color";
-            this.colorCol.HeaderText = "Color";
-            this.colorCol.Name = "colorCol";
-            // 
-            // personIDCol_dataGrid5
-            // 
-            this.personIDCol_dataGrid5.DataPropertyName = "PersonID";
-            this.personIDCol_dataGrid5.HeaderText = "PersonID";
-            this.personIDCol_dataGrid5.Name = "personIDCol_dataGrid5";
+            this.button5_showVehicle.Location = new System.Drawing.Point(9, 282);
+            this.button5_showVehicle.Name = "button5_showVehicle";
+            this.button5_showVehicle.Size = new System.Drawing.Size(115, 36);
+            this.button5_showVehicle.TabIndex = 34;
+            this.button5_showVehicle.Text = "Show This Person \'s Vehicles";
+            this.button5_showVehicle.UseVisualStyleBackColor = true;
             // 
             // Form_manageHotel
             // 
@@ -1331,6 +1409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tabPage_manageVehicle.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource2)).EndInit();
@@ -1440,13 +1519,6 @@
         private System.Windows.Forms.BindingSource clientsBindingSource;
         private HotelManagerDataSet1TableAdapters.ClientsTableAdapter clientsTableAdapter;
         private System.Windows.Forms.BindingSource clientBindingSource1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Check;
-        private System.Windows.Forms.DataGridViewTextBoxColumn personIDCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lNameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fNameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roomIDCol;
         private System.Windows.Forms.TabPage tabPage_manageVehicle;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.Label label3;
@@ -1468,11 +1540,25 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.BindingSource clientBindingSource2;
         private System.Windows.Forms.Button button5_clear;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Check;
+        private System.Windows.Forms.DataGridViewTextBoxColumn personIDCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fNameCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomIDCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PictureOfIDCard;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PictureOfHouseholdRegistry;
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkVehicleCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleIDCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn colorCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn personIDCol_dataGrid5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Picture;
+        private System.Windows.Forms.Label label5_vehicleAddPath;
+        private System.Windows.Forms.TextBox textBox5_sarch;
+        private System.Windows.Forms.Button button5_search;
+        private System.Windows.Forms.Button button5_showVehicle;
 
     }
 }

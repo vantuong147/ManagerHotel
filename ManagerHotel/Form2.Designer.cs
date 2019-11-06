@@ -60,6 +60,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxW2_skipContract = new System.Windows.Forms.CheckBox();
             this.dateTimePickerW2_timeEnd = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerW2_timeStart = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelManagerDataSet = new ManagerHotel.HotelManagerDataSet();
             this.roomsTableAdapter = new ManagerHotel.HotelManagerDataSetTableAdapters.RoomsTableAdapter();
-            this.checkBoxW2_skipContract = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -157,6 +157,7 @@
             this.pictureBoxW1_idCard.Location = new System.Drawing.Point(20, 14);
             this.pictureBoxW1_idCard.Name = "pictureBoxW1_idCard";
             this.pictureBoxW1_idCard.Size = new System.Drawing.Size(270, 147);
+            this.pictureBoxW1_idCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxW1_idCard.TabIndex = 15;
             this.pictureBoxW1_idCard.TabStop = false;
             this.pictureBoxW1_idCard.Click += new System.EventHandler(this.pictureBoxW1_idCard_Click);
@@ -176,8 +177,10 @@
             this.pictureBoxW1_houseHoldReg.Location = new System.Drawing.Point(20, 193);
             this.pictureBoxW1_houseHoldReg.Name = "pictureBoxW1_houseHoldReg";
             this.pictureBoxW1_houseHoldReg.Size = new System.Drawing.Size(270, 151);
+            this.pictureBoxW1_houseHoldReg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxW1_houseHoldReg.TabIndex = 16;
             this.pictureBoxW1_houseHoldReg.TabStop = false;
+            this.pictureBoxW1_houseHoldReg.Click += new System.EventHandler(this.pictureBoxW1_houseHoldReg_Click);
             // 
             // label7
             // 
@@ -348,6 +351,7 @@
             this.pictureBoxW2_pictureContract.Location = new System.Drawing.Point(6, 14);
             this.pictureBoxW2_pictureContract.Name = "pictureBoxW2_pictureContract";
             this.pictureBoxW2_pictureContract.Size = new System.Drawing.Size(299, 204);
+            this.pictureBoxW2_pictureContract.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxW2_pictureContract.TabIndex = 15;
             this.pictureBoxW2_pictureContract.TabStop = false;
             this.pictureBoxW2_pictureContract.Click += new System.EventHandler(this.pictureBoxW2_pictureContract_Click);
@@ -384,6 +388,17 @@
             this.groupBox1.Size = new System.Drawing.Size(330, 351);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
+            // 
+            // checkBoxW2_skipContract
+            // 
+            this.checkBoxW2_skipContract.AutoSize = true;
+            this.checkBoxW2_skipContract.Location = new System.Drawing.Point(9, 22);
+            this.checkBoxW2_skipContract.Name = "checkBoxW2_skipContract";
+            this.checkBoxW2_skipContract.Size = new System.Drawing.Size(238, 19);
+            this.checkBoxW2_skipContract.TabIndex = 13;
+            this.checkBoxW2_skipContract.Text = "Skip(This person doesn \'t need contract)";
+            this.checkBoxW2_skipContract.UseVisualStyleBackColor = true;
+            this.checkBoxW2_skipContract.CheckedChanged += new System.EventHandler(this.checkBoxW2_skipContract_CheckedChanged);
             // 
             // dateTimePickerW2_timeEnd
             // 
@@ -446,17 +461,6 @@
             // roomsTableAdapter
             // 
             this.roomsTableAdapter.ClearBeforeFill = true;
-            // 
-            // checkBoxW2_skipContract
-            // 
-            this.checkBoxW2_skipContract.AutoSize = true;
-            this.checkBoxW2_skipContract.Location = new System.Drawing.Point(9, 22);
-            this.checkBoxW2_skipContract.Name = "checkBoxW2_skipContract";
-            this.checkBoxW2_skipContract.Size = new System.Drawing.Size(238, 19);
-            this.checkBoxW2_skipContract.TabIndex = 13;
-            this.checkBoxW2_skipContract.Text = "Skip(This person doesn \'t need contract)";
-            this.checkBoxW2_skipContract.UseVisualStyleBackColor = true;
-            this.checkBoxW2_skipContract.CheckedChanged += new System.EventHandler(this.checkBoxW2_skipContract_CheckedChanged);
             // 
             // Form_addTenant
             // 

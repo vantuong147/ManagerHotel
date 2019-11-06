@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AeroWizard;
+using System.Security;
 
 namespace ManagerHotel
 {
     public partial class Form_manageHotel : Form
     {
+        string imgGrey = "images/grey.jpg";
+
         List<Client> lstClient;
         BindingSource sourceClient;
         DataHandle dataHandle;
@@ -22,7 +25,9 @@ namespace ManagerHotel
 
 
         int rowIndexTenantNow;
+        int rowIndexVehicleNow;
         int loaded;
+        string idClientNow;
         public Form_manageHotel()
         {
             InitializeComponent();
@@ -30,6 +35,7 @@ namespace ManagerHotel
             sourceClient = new BindingSource();
             sourceVehicle = new BindingSource();
             rowIndexTenantNow = 0;
+            rowIndexVehicleNow = 0;
             loaded = 0;
         }
         /*---------------------------------------------------Form Function--------------------------------------------------*/
@@ -43,6 +49,9 @@ namespace ManagerHotel
             sourceVehicle.DataSource = lstVehicle;
             dataGridView5_showVehicles.DataSource = sourceVehicle;
             comboBox5_personId.DataSource = lstClient;
+
+            label5_vehicleAddPath.Visible = false;
+            button5_addVehicle.Enabled = false;
 
             loaded = 1;
         }
@@ -98,12 +107,72 @@ namespace ManagerHotel
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog fd = new OpenFileDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pictureBox2.Image = Image.FromFile(fd.FileName);
+                    string preImage = dataGridView1_showTenants.Rows[rowIndexTenantNow].Cells["PictureOfHouseholdRegistry"].Value.ToString();
+                    if (preImage == fd.FileName)
+                    {
+                        return;
+                    }
+                    DialogResult dialogResult = MessageBox.Show("Are you sure to change image?", "Confirm", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        if (preImage == "na")
+                        {
+                            preImage = imgGrey;
+                        }
+                        pictureBox2.Image = Image.FromFile(preImage);
+                        return;
+                    }
+                    else
+                    {
+                        dataHandle.EditPictureHousehold(idClientNow, fd.FileName);
+                    }
+                }
+                catch (SecurityException ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog fd = new OpenFileDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pictureBox1.Image = Image.FromFile(fd.FileName);
+                    string preImage = dataGridView1_showTenants.Rows[rowIndexTenantNow].Cells["PictureOfIDCard"].Value.ToString();
+                    if (preImage == fd.FileName)
+                    {
+                        return;
+                    }
+                    DialogResult dialogResult = MessageBox.Show("Are you sure to change image?", "Confirm", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        if (preImage == "na")
+                        {
+                            preImage = imgGrey;
+                        }
+                        pictureBox1.Image = Image.FromFile(preImage);
+                        return;
+                    }
+                    else
+                    {
+                        dataHandle.EditPictureIdCard(idClientNow, fd.FileName);
+                    }
+                }
+                catch (SecurityException ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }
         }
         
         private void RefreshDataTable1()
@@ -116,6 +185,26 @@ namespace ManagerHotel
         private void dataGridView1_showTenants_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndexTenantNow = e.RowIndex;
+            idClientNow = dataGridView1_showTenants.Rows[rowIndexTenantNow].Cells["personIDCol"].Value.ToString();
+            string img1 = dataGridView1_showTenants.Rows[rowIndexTenantNow].Cells["PictureOfIDCard"].Value.ToString();
+            if (img1!="na")
+            {
+                pictureBox1.Image = Image.FromFile(img1);
+            }
+            else
+            {
+                pictureBox1.Image = Image.FromFile(imgGrey);
+            }
+            string img2 = dataGridView1_showTenants.Rows[rowIndexTenantNow].Cells["PictureOfHouseholdRegistry"].Value.ToString();
+            if (img2 != "na")
+            {
+                pictureBox2.Image = Image.FromFile(img2);
+            }
+            else
+            {
+                pictureBox2.Image = Image.FromFile(imgGrey);
+            }
+
         }
         private void dataGridView1_showTenants_CellValueChanged_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -218,6 +307,7 @@ namespace ManagerHotel
             {
                 MessageBox.Show("Add Success!");
                 RefreshDataTable5();
+                button5_addVehicle.Enabled = false;
             }
         }
 
@@ -254,6 +344,57 @@ namespace ManagerHotel
                     break;
             }
             dataHandle.EditVehicleById(v.VehicleID, v);
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fd = new OpenFileDialog();
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pictureBox8.Image = Image.FromFile(fd.FileName);
+                    string preImage = dataGridView5_showVehicles.Rows[rowIndexTenantNow].Cells["Picture"].Value.ToString();
+                    if (preImage == fd.FileName)
+                    {
+                        return;
+                    }
+                    DialogResult dialogResult = MessageBox.Show("Are you sure to change image?", "Confirm", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        if (preImage == "na")
+                        {
+                            preImage = imgGrey;
+                        }
+                        pictureBox8.Image = Image.FromFile(preImage);
+                        return;
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                catch (SecurityException ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+        }
+
+        private void dataGridView5_showVehicles_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndexVehicleNow = e.RowIndex;
+            comboBox5_personId.Text = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["personIDCol_dataGrid5"].Value.ToString();
+            textBox5_vehicleId.Text = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["vehicleIDCol"].Value.ToString();
+            textBox5_vehicleModel.Text = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["modelCol"].Value.ToString();
+            comboBox5_vehicleColor.Text = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["colorCol"].Value.ToString();
+        }
+
+        private void textBox5_vehicleId_TextChanged(object sender, EventArgs e)
+        {
+            pictureBox8.Image = Image.FromFile(imgGrey);
+            button5_addVehicle.Enabled = true;
+            label5_vehicleAddPath.Text = "na";
         }
         /*------------------------------------------------------------------------------------------------------*/
         

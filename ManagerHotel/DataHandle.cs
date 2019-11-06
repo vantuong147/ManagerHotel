@@ -15,6 +15,7 @@ namespace ManagerHotel
         public HotelManagerEntities db;
         public static string ERR_DATA_MISSED = "Data missed";
         public static string ERR_DATA_EXISTED = "Data existes";
+        public static string ERR = "ERR";
         public static string SUCESS = "Success";
         public DataHandle()
         {
@@ -70,6 +71,28 @@ namespace ManagerHotel
             c.RoomID = newData.RoomID;
             db.SaveChanges();
             return true;
+        }
+        public string EditPictureIdCard(string id, string newPath)
+        {
+            Client c = db.Clients.Where(x => x.PersonID == id).FirstOrDefault();
+            if (c != null)
+            {
+                c.PictureOfIDCard = newPath;
+                db.SaveChanges();
+                return SUCESS;
+            }
+            return ERR;
+        }
+        public string EditPictureHousehold(string id, string newPath)
+        {
+            Client c = db.Clients.Where(x => x.PersonID == id).FirstOrDefault();
+            if (c != null)
+            {
+                c.PictureOfHouseholdRegistry = newPath;
+                db.SaveChanges();
+                return SUCESS;
+            }
+            return ERR;
         }
         public bool isTenantExisted(string id)
         {
