@@ -28,6 +28,9 @@ namespace ManagerHotel
         int rowIndexVehicleNow;
         int loaded;
         string idClientNow;
+
+        bool isSearchVehicle;
+        bool isChangedByCellClickVehicle;
         public Form_manageHotel()
         {
             InitializeComponent();
@@ -37,13 +40,14 @@ namespace ManagerHotel
             rowIndexTenantNow = 0;
             rowIndexVehicleNow = 0;
             loaded = 0;
+            isSearchVehicle = false;
+            isChangedByCellClickVehicle = false;
         }
         /*---------------------------------------------------Form Function--------------------------------------------------*/
         private void Form_manageHotel_Load(object sender, EventArgs e)
         {
-            lstClient = dataHandle.GetAllClients();
-            sourceClient.DataSource = lstClient;
-            dataGridView1_showTenants.DataSource = sourceClient;
+            RefreshDataTable1();
+            RefreshDataTable5();
 
             lstVehicle = dataHandle.GetAllVehicles();
             sourceVehicle.DataSource = lstVehicle;
@@ -237,8 +241,21 @@ namespace ManagerHotel
         }
         private void button1_manageVehicles_Click(object sender, EventArgs e)
         {
-
+            isSearchVehicle = true;
+            tabControl.SelectedTab = tabPage_manageVehicle;
         }
+        private void button1_search_Click(object sender, EventArgs e)
+        {
+            string key = textBox1_searchTenants.Text;
+            lstClient = dataHandle.FindTenantsByKey(key);
+            sourceClient.DataSource = lstClient;
+            dataGridView1_showTenants.DataSource = sourceClient;
+        }
+        private void button1_showAll_Click(object sender, EventArgs e)
+        {
+            RefreshDataTable1();
+        }
+
         /*---------------------------------------------------Tab vehicle function-------------------------------*/
         private void button5_removeVehicles_Click(object sender, EventArgs e)
         {
@@ -278,6 +295,11 @@ namespace ManagerHotel
             sourceVehicle.DataSource = lstVehicle;
             dataGridView5_showVehicles.DataSource = sourceVehicle;
         }
+        private void RefreshDataTable5ByData(List<Vehicle> lst)
+        {
+            sourceVehicle.DataSource = lst;
+            dataGridView5_showVehicles.DataSource = sourceVehicle;
+        }
         private void RefreshComboBoxPersonId5()
         {
             lstClient = dataHandle.GetAllClients();
@@ -292,6 +314,7 @@ namespace ManagerHotel
             v.Model = textBox5_vehicleModel.Text;
             v.Color = comboBox5_vehicleColor.Text;
             v.PersonID = comboBox5_personId.Text;
+            v.Picture = label5_vehicleAddPath.Text;
             return v;
         }
         private void button4_addContracts_Click(object sender, EventArgs e)
@@ -309,14 +332,20 @@ namespace ManagerHotel
                 RefreshDataTable5();
                 button5_addVehicle.Enabled = false;
             }
+            if (result == DataHandle.ERR_DATA_EXISTED)
+            {
+                MessageBox.Show("This Vehicle ID has existed!");
+            }
         }
 
         private void button5_clear_Click(object sender, EventArgs e)
         {
-            textBox5_vehicleId.Text = ""; ;
+            isChangedByCellClickVehicle = true;
+            textBox5_vehicleId.Text = "";
             textBox5_vehicleModel.Text = "";
             comboBox5_vehicleColor.Text = "";
             comboBox5_personId.Text = "";
+            pictureBox8.Image = Image.FromFile(imgGrey);
         }
 
         private void dataGridView5_showVehicles_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -346,6 +375,7 @@ namespace ManagerHotel
             dataHandle.EditVehicleById(v.VehicleID, v);
         }
 
+        //Click to edit/add picture
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             OpenFileDialog fd = new OpenFileDialog();
@@ -354,7 +384,12 @@ namespace ManagerHotel
                 try
                 {
                     pictureBox8.Image = Image.FromFile(fd.FileName);
-                    string preImage = dataGridView5_showVehicles.Rows[rowIndexTenantNow].Cells["Picture"].Value.ToString();
+                    label5_vehicleAddPath.Text = fd.FileName;
+                    if (button5_addVehicle.Enabled == true)
+                    {
+                        return;
+                    }
+                    string preImage = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["Picture"].Value.ToString();
                     if (preImage == fd.FileName)
                     {
                         return;
@@ -371,7 +406,7 @@ namespace ManagerHotel
                     }
                     else
                     {
-                        
+                        dataHandle.EditVehiclePicture(dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["vehicleIDCol"].Value.ToString(), fd.FileName);
                     }
                 }
                 catch (SecurityException ex)
@@ -383,19 +418,70 @@ namespace ManagerHotel
 
         private void dataGridView5_showVehicles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            isChangedByCellClickVehicle = true;
+            button5_addVehicle.Enabled = false;
             rowIndexVehicleNow = e.RowIndex;
             comboBox5_personId.Text = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["personIDCol_dataGrid5"].Value.ToString();
             textBox5_vehicleId.Text = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["vehicleIDCol"].Value.ToString();
             textBox5_vehicleModel.Text = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["modelCol"].Value.ToString();
             comboBox5_vehicleColor.Text = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["colorCol"].Value.ToString();
+            
+            string img = dataGridView5_showVehicles.Rows[rowIndexVehicleNow].Cells["Picture"].Value.ToString();
+            if (img == "na")
+            {
+                img=imgGrey;
+            }
+            pictureBox8.Image = Image.FromFile(img);
         }
 
         private void textBox5_vehicleId_TextChanged(object sender, EventArgs e)
         {
-            pictureBox8.Image = Image.FromFile(imgGrey);
-            button5_addVehicle.Enabled = true;
-            label5_vehicleAddPath.Text = "na";
+            if (isChangedByCellClickVehicle)
+            {
+                isChangedByCellClickVehicle = false;
+            }
+            else
+            {
+                pictureBox8.Image = Image.FromFile(imgGrey);
+                button5_addVehicle.Enabled = true;
+                label5_vehicleAddPath.Text = "na";
+            }
+           
         }
+
+        private void tabPage_manageVehicle_Enter(object sender, EventArgs e)
+        {
+            if (isSearchVehicle)
+            {
+                isSearchVehicle = false;
+                lstVehicle = dataHandle.FindVehiclesByPersonId(idClientNow);
+                RefreshDataTable5ByData(lstVehicle);
+                comboBox5_personId.Text = idClientNow;
+            }
+            else
+            {
+                RefreshDataTable5();
+            }
+        }
+
+        private void button5_showAll_Click(object sender, EventArgs e)
+        {
+            RefreshDataTable5();
+        }
+
+        private void button5_search_Click(object sender, EventArgs e)
+        {
+            string key = textBox5_search.Text;
+            lstVehicle = dataHandle.FindVehiclesByKey(key);
+            RefreshDataTable5ByData(lstVehicle);
+        }
+
+        private void button5_showVehicleOfPerson_Click(object sender, EventArgs e)
+        {
+            lstVehicle = dataHandle.FindVehiclesByPersonId(comboBox5_personId.Text);
+            RefreshDataTable5ByData(lstVehicle);
+        }
+
         /*------------------------------------------------------------------------------------------------------*/
         
     }

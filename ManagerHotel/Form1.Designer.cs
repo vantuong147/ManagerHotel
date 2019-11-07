@@ -37,6 +37,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1_showAll = new System.Windows.Forms.Button();
             this.textBox1_searchTenants = new System.Windows.Forms.TextBox();
             this.button1_checkContracts = new System.Windows.Forms.Button();
             this.button1_manageVehicles = new System.Windows.Forms.Button();
@@ -125,8 +126,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage_manageVehicle = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.button5_showAll = new System.Windows.Forms.Button();
+            this.textBox5_search = new System.Windows.Forms.TextBox();
+            this.button5_search = new System.Windows.Forms.Button();
             this.button5_removeVehicles = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.button5_showVehicleOfPerson = new System.Windows.Forms.Button();
             this.button5_clear = new System.Windows.Forms.Button();
             this.comboBox5_vehicleColor = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -154,9 +159,6 @@
             this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelManagerDataSet1 = new ManagerHotel.HotelManagerDataSet1();
             this.clientsTableAdapter = new ManagerHotel.HotelManagerDataSet1TableAdapters.ClientsTableAdapter();
-            this.button5_search = new System.Windows.Forms.Button();
-            this.textBox5_sarch = new System.Windows.Forms.TextBox();
-            this.button5_showVehicle = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage_manageTenants.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -278,6 +280,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1_showAll);
             this.groupBox1.Controls.Add(this.textBox1_searchTenants);
             this.groupBox1.Controls.Add(this.button1_checkContracts);
             this.groupBox1.Controls.Add(this.button1_manageVehicles);
@@ -290,6 +293,16 @@
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // button1_showAll
+            // 
+            this.button1_showAll.Location = new System.Drawing.Point(568, 18);
+            this.button1_showAll.Name = "button1_showAll";
+            this.button1_showAll.Size = new System.Drawing.Size(75, 23);
+            this.button1_showAll.TabIndex = 24;
+            this.button1_showAll.Text = "Show All";
+            this.button1_showAll.UseVisualStyleBackColor = true;
+            this.button1_showAll.Click += new System.EventHandler(this.button1_showAll_Click);
             // 
             // textBox1_searchTenants
             // 
@@ -325,6 +338,7 @@
             this.button1_search.TabIndex = 20;
             this.button1_search.Text = "Search";
             this.button1_search.UseVisualStyleBackColor = true;
+            this.button1_search.Click += new System.EventHandler(this.button1_search_Click);
             // 
             // button1_removeTenants
             // 
@@ -1074,10 +1088,12 @@
             this.tabPage_manageVehicle.TabIndex = 4;
             this.tabPage_manageVehicle.Text = "Manage Vehicle";
             this.tabPage_manageVehicle.UseVisualStyleBackColor = true;
+            this.tabPage_manageVehicle.Enter += new System.EventHandler(this.tabPage_manageVehicle_Enter);
             // 
             // groupBox13
             // 
-            this.groupBox13.Controls.Add(this.textBox5_sarch);
+            this.groupBox13.Controls.Add(this.button5_showAll);
+            this.groupBox13.Controls.Add(this.textBox5_search);
             this.groupBox13.Controls.Add(this.button5_search);
             this.groupBox13.Controls.Add(this.button5_removeVehicles);
             this.groupBox13.Location = new System.Drawing.Point(716, 6);
@@ -1085,6 +1101,33 @@
             this.groupBox13.Size = new System.Drawing.Size(537, 47);
             this.groupBox13.TabIndex = 34;
             this.groupBox13.TabStop = false;
+            // 
+            // button5_showAll
+            // 
+            this.button5_showAll.Location = new System.Drawing.Point(150, 18);
+            this.button5_showAll.Name = "button5_showAll";
+            this.button5_showAll.Size = new System.Drawing.Size(97, 23);
+            this.button5_showAll.TabIndex = 32;
+            this.button5_showAll.Text = "Show All";
+            this.button5_showAll.UseVisualStyleBackColor = true;
+            this.button5_showAll.Click += new System.EventHandler(this.button5_showAll_Click);
+            // 
+            // textBox5_search
+            // 
+            this.textBox5_search.Location = new System.Drawing.Point(334, 18);
+            this.textBox5_search.Name = "textBox5_search";
+            this.textBox5_search.Size = new System.Drawing.Size(116, 20);
+            this.textBox5_search.TabIndex = 31;
+            // 
+            // button5_search
+            // 
+            this.button5_search.Location = new System.Drawing.Point(456, 19);
+            this.button5_search.Name = "button5_search";
+            this.button5_search.Size = new System.Drawing.Size(75, 22);
+            this.button5_search.TabIndex = 30;
+            this.button5_search.Text = "Search";
+            this.button5_search.UseVisualStyleBackColor = true;
+            this.button5_search.Click += new System.EventHandler(this.button5_search_Click);
             // 
             // button5_removeVehicles
             // 
@@ -1098,7 +1141,7 @@
             // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.button5_showVehicle);
+            this.groupBox11.Controls.Add(this.button5_showVehicleOfPerson);
             this.groupBox11.Controls.Add(this.button5_clear);
             this.groupBox11.Controls.Add(this.comboBox5_vehicleColor);
             this.groupBox11.Controls.Add(this.label18);
@@ -1114,6 +1157,16 @@
             this.groupBox11.Size = new System.Drawing.Size(225, 411);
             this.groupBox11.TabIndex = 31;
             this.groupBox11.TabStop = false;
+            // 
+            // button5_showVehicleOfPerson
+            // 
+            this.button5_showVehicleOfPerson.Location = new System.Drawing.Point(9, 282);
+            this.button5_showVehicleOfPerson.Name = "button5_showVehicleOfPerson";
+            this.button5_showVehicleOfPerson.Size = new System.Drawing.Size(115, 36);
+            this.button5_showVehicleOfPerson.TabIndex = 34;
+            this.button5_showVehicleOfPerson.Text = "Show This Person \'s Vehicles";
+            this.button5_showVehicleOfPerson.UseVisualStyleBackColor = true;
+            this.button5_showVehicleOfPerson.Click += new System.EventHandler(this.button5_showVehicleOfPerson_Click);
             // 
             // button5_clear
             // 
@@ -1334,31 +1387,6 @@
             // 
             this.clientsTableAdapter.ClearBeforeFill = true;
             // 
-            // button5_search
-            // 
-            this.button5_search.Location = new System.Drawing.Point(456, 19);
-            this.button5_search.Name = "button5_search";
-            this.button5_search.Size = new System.Drawing.Size(75, 22);
-            this.button5_search.TabIndex = 30;
-            this.button5_search.Text = "Search";
-            this.button5_search.UseVisualStyleBackColor = true;
-            // 
-            // textBox5_sarch
-            // 
-            this.textBox5_sarch.Location = new System.Drawing.Point(334, 18);
-            this.textBox5_sarch.Name = "textBox5_sarch";
-            this.textBox5_sarch.Size = new System.Drawing.Size(116, 20);
-            this.textBox5_sarch.TabIndex = 31;
-            // 
-            // button5_showVehicle
-            // 
-            this.button5_showVehicle.Location = new System.Drawing.Point(9, 282);
-            this.button5_showVehicle.Name = "button5_showVehicle";
-            this.button5_showVehicle.Size = new System.Drawing.Size(115, 36);
-            this.button5_showVehicle.TabIndex = 34;
-            this.button5_showVehicle.Text = "Show This Person \'s Vehicles";
-            this.button5_showVehicle.UseVisualStyleBackColor = true;
-            // 
             // Form_manageHotel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1556,9 +1584,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn personIDCol_dataGrid5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Picture;
         private System.Windows.Forms.Label label5_vehicleAddPath;
-        private System.Windows.Forms.TextBox textBox5_sarch;
+        private System.Windows.Forms.TextBox textBox5_search;
         private System.Windows.Forms.Button button5_search;
-        private System.Windows.Forms.Button button5_showVehicle;
+        private System.Windows.Forms.Button button5_showVehicleOfPerson;
+        private System.Windows.Forms.Button button1_showAll;
+        private System.Windows.Forms.Button button5_showAll;
 
     }
 }

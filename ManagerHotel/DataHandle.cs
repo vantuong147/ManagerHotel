@@ -52,11 +52,22 @@ namespace ManagerHotel
                 return ERR_DATA_EXISTED;
             }
         }
+
         public Client GetTenantById(string id)
         {
             Client c = db.Clients.Where(x => x.PersonID == id).FirstOrDefault();
             return c;
         }
+        public List<Client> FindTenantsByKey(string key)
+        {
+            List<Client> lst = db.Clients.Where(x => (x.Address + x.FirstName + x.LastName + x.PersonID + x.Phone + x.RoomID).Contains(key)).ToList();
+            if (lst == null)
+            {
+                lst = new List<Client>();
+            }
+            return lst;
+        }
+
         public bool EditTenantById(string id, Client newData)
         {
             Client c = db.Clients.Where(x => x.PersonID == id).FirstOrDefault();
@@ -108,13 +119,23 @@ namespace ManagerHotel
             if (c != null)
             {
                 List<Contract> lstContract = c.Contracts.ToList();
+                int i = 0;
+                int n = 0;
                 if (lstContract!=null)
                 {
-                    int i = 0;
-                    int n=lstContract.Count;
+                    n = lstContract.Count;
                     for (i=0;i<n;i++)
                     {
                         db.Contracts.Remove(lstContract.ElementAt(i));
+                    }
+                }
+                List<Vehicle> lstVehicle = FindVehiclesByPersonId(id);
+                if (lstVehicle != null)
+                {
+                    n = lstVehicle.Count;
+                    for (i = 0; i < n; i++)
+                    {
+                        db.Vehicles.Remove(lstVehicle.ElementAt(i));
                     }
                 }
                 db.Clients.Remove(c);
@@ -190,8 +211,28 @@ namespace ManagerHotel
 
         public Vehicle GetVehicle(string id)
         {
-            Vehicle r = db.Vehicles.AsEnumerable().Where(x => x.VehicleID == id).FirstOrDefault();
+            Vehicle r = db.Vehicles.Where(x => x.VehicleID == id).FirstOrDefault();
             return r;
+        }
+
+        public List<Vehicle> FindVehiclesByKey(string key)
+        {
+            List<Vehicle> lst = db.Vehicles.Where(x => (x.PersonID + x.VehicleID + x.Model + x.Color).Contains(key)).ToList();
+            if (lst == null)
+            {
+                lst = new List<Vehicle>();
+            }
+            return lst;
+        }
+
+        public List<Vehicle> FindVehiclesByPersonId(string personId)
+        {
+            List<Vehicle> lst = db.Vehicles.Where(x => x.PersonID == personId).ToList();
+            if (lst == null)
+            {
+                lst = new List<Vehicle>();
+            }
+            return lst;
         }
 
         public bool RemoveVehicleById(string id)
@@ -236,6 +277,17 @@ namespace ManagerHotel
             v.PersonID = newData.PersonID;
             db.SaveChanges();
             return true;
+        }
+        public string EditVehiclePicture(string id, string img)
+        {
+            Vehicle v = db.Vehicles.AsEnumerable().Where(x => x.VehicleID == id).FirstOrDefault();
+            if (v!=null)
+            {
+                v.Picture = img;
+                db.SaveChanges();
+                return SUCESS;
+            }
+            return ERR_DATA_MISSED;
         }
     }
 }
