@@ -183,6 +183,16 @@ namespace ManagerHotel
             return true;
         }
         /*----------------------------------------------Contract function----------------------------------------*/
+        public List<Contract> GetAllContracts()
+        {
+            List<Contract> lst = db.Contracts.ToList<Contract>();
+            if(lst!= null)
+            {
+                return lst;
+            }
+            return new List<Contract>();
+        }
+
         public bool AddContractByObj(Contract obj)
         {
             if (obj == null)
